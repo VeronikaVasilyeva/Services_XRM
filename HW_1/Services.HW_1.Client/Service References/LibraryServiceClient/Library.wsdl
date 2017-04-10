@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Library" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/library?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/library?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/library?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Services.Lesson_2.Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILibrary_AddBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBook" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_AddBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_GetBookById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookById" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_GetBookById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_GetBooksByAuthor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooksByAuthor" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_GetBooksByAuthor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooksByAuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_GiveBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:GiveBook" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_GiveBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GiveBookResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_ReturnBook_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBook" />
+  </wsdl:message>
+  <wsdl:message name="ILibrary_ReturnBook_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnBookResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILibrary">
+    <wsdl:operation name="AddBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibrary/AddBook" message="tns:ILibrary_AddBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibrary/AddBookResponse" message="tns:ILibrary_AddBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookById">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibrary/GetBookById" message="tns:ILibrary_GetBookById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibrary/GetBookByIdResponse" message="tns:ILibrary_GetBookById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBooksByAuthor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibrary/GetBooksByAuthor" message="tns:ILibrary_GetBooksByAuthor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibrary/GetBooksByAuthorResponse" message="tns:ILibrary_GetBooksByAuthor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GiveBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibrary/GiveBook" message="tns:ILibrary_GiveBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibrary/GiveBookResponse" message="tns:ILibrary_GiveBook_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBook">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILibrary/ReturnBook" message="tns:ILibrary_ReturnBook_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILibrary/ReturnBookResponse" message="tns:ILibrary_ReturnBook_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILibrary" type="tns:ILibrary">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddBook">
+      <soap:operation soapAction="http://tempuri.org/ILibrary/AddBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookById">
+      <soap:operation soapAction="http://tempuri.org/ILibrary/GetBookById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooksByAuthor">
+      <soap:operation soapAction="http://tempuri.org/ILibrary/GetBooksByAuthor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GiveBook">
+      <soap:operation soapAction="http://tempuri.org/ILibrary/GiveBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnBook">
+      <soap:operation soapAction="http://tempuri.org/ILibrary/ReturnBook" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Library">
+    <wsdl:port name="BasicHttpBinding_ILibrary" binding="tns:BasicHttpBinding_ILibrary">
+      <soap:address location="http://localhost:8080/library" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
