@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="901f7222-c2c0-4e0e-b0fe-218ad9bc4e46" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/service" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f9736f65-19df-4ad7-941a-0443f9d5834b" SourceId="1" SourceUrl="http://localhost:8000/service?xsd=xsd1" />
+    <MetadataFile FileName="FileWriterService.wsdl" MetadataType="Wsdl" ID="b45e8bbd-08c3-42f8-aa1c-b9e9d79f1d66" SourceId="1" SourceUrl="http://localhost:8000/service?wsdl" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="ba462cfa-5d3d-4813-ad5c-e0696f5de66c" SourceId="1" SourceUrl="http://localhost:8000/service?xsd=xsd0" />
+    <MetadataFile FileName="service.disco" MetadataType="Disco" ID="8b553103-b6c8-4088-9147-5c290ab62a17" SourceId="1" SourceUrl="http://localhost:8000/service?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
