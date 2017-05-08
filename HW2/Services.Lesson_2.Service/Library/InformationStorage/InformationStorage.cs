@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
-namespace Services.Lesson_2.Service
+namespace Services.Lesson_2.Service.Library.InformationStorage
 {
     public class InformationStorage
     {
-        private static Dictionary<Person, List<Book>> _libraryInfo;
+        private static Dictionary<Person, List<BookStorage.Book>> _libraryInfo;
 
         public InformationStorage()
         {
             if (_libraryInfo == null)
             {
-                _libraryInfo = new Dictionary<Person, List<Book>>();
+                _libraryInfo = new Dictionary<Person, List<BookStorage.Book>>();
             }
         }
 
-        public void AddEntry(Book book, Person person)
+        public void AddEntry(BookStorage.Book book, Person person)
         {
             if (_libraryInfo.ContainsKey(person))
             {
@@ -26,11 +24,11 @@ namespace Services.Lesson_2.Service
             }
             else
             {
-                _libraryInfo.Add(person, new List<Book> { book });
+                _libraryInfo.Add(person, new List<BookStorage.Book> { book });
             }
         }
 
-        public void RemoveEntry(Book book, Person person)
+        public void RemoveEntry(BookStorage.Book book, Person person)
         {
             if (_libraryInfo.ContainsKey(person))
             {

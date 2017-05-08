@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Services.Lesson_2.Client.ServiceReference1;
 
 namespace Services.Lesson_2.Client
@@ -9,21 +10,21 @@ namespace Services.Lesson_2.Client
         {
             var client = new LibraryClient();
 
-            client.AddBook(new Book {   Id = 10, Title = "Harry Potter10",
-                                        Author = "J.Rouling",
-                                        Year = 2000,
-                                        Type = BookType.Fiction });
+            client.IntroduceYourself(5, "Вася");
 
-            Book book = client.GetBookById(0);
+            List<int> arr = new List<int>{ 1, 2, 3 };
+            client.ChooseNewBooks(arr);
 
-            Book[] books = client.GetBooksByAuthor("J.Rouling");
+            client.HandOverBooks(new List<int>{ 2, 3 });
 
-            Book takenBook = client.GiveBook(0, 0);
+            client.ChooseNewBooks(arr);
 
-            client.ReturnBook(0, 0);
+            client.ApplayChanges();
 
-            Console.Write("I'am client of Library");
-            Console.ReadLine();
+            client.GoAway();
+
+
+            Console.ReadKey();
         }
     }
 }

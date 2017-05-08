@@ -4,23 +4,30 @@ using System.ServiceModel;
 
 namespace Services.Lesson_2.Service
 {
-    [ServiceContract]
+    [ServiceContract(SessionMode = SessionMode.Required)]
     public interface ILibrary
     {
-        [OperationContract]
-        void AddBook(Book book);
 
-        [OperationContract]
-        Book GetBookById(int id);
+        [OperationContract(IsInitiating = true)]
+        void IntroduceYourself(int idPerson, string name);
 
-        [OperationContract]
-        List<Book> GetBooksByAuthor(string author);
+        [OperationContract(IsTerminating = true)]
+        void GoAway();
 
-        [OperationContract]
-        Book GiveBook(Int32 idBook, int idPerson);
+        [OperationContract(IsInitiating = false)]
+        void ChooseNewBooks(List<int> ids);
 
-        [OperationContract]
-        void ReturnBook(int idBook, int idPerson);
+        [OperationContract(IsInitiating = false)]
+        void HandOverBooks(List<int> ids);
+
+        [OperationContract(IsInitiating = false)]
+        string ApplayChanges();
 
     }
 }
+
+/* 
+Выбрать новые книги
+Сдать старые книги
+Завершить обслуживание (применить изменения)
+ * */

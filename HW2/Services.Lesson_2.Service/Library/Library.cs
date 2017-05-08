@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+using Services.Lesson_2.Service.Library.BookStorage;
+using Services.Lesson_2.Service.Library.InformationStorage;
 
-namespace Services.Lesson_2.Service
+namespace Services.Lesson_2.Service.Library
 {
-    public class Library : ILibrary
+    public class Library
     {
-        private InformationStorage infoStorage = new InformationStorage();
+        private InformationStorage.InformationStorage infoStorage = new InformationStorage.InformationStorage();
         private BooksStorage bookStorage = new BooksStorage();
 
-        public void AddBook(Book book)
+        public void AddBookToStorage(Book book)
         {
             bookStorage.Add(book);
         }
@@ -30,9 +28,7 @@ namespace Services.Lesson_2.Service
         public Book GiveBook(int idBook, int idPerson)
         {
             var book = bookStorage.GetById(idBook);
-            var person = new Person();
-            person.Id = idPerson;
-
+            var person = new Person {Id = idPerson};
             infoStorage.AddEntry(book, person);
 
             return book;
@@ -41,10 +37,10 @@ namespace Services.Lesson_2.Service
         public void ReturnBook(int idBook, int idPerson)
         {
             var book = bookStorage.GetById(idBook);
-            var person = new Person();
-            person.Id = idPerson;
-
+            var person = new Person {Id = idPerson};
             infoStorage.RemoveEntry(book, person);
         }
+
+
     }
 }

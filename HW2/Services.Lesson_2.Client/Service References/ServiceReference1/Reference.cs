@@ -9,166 +9,41 @@
 //------------------------------------------------------------------------------
 
 namespace Services.Lesson_2.Client.ServiceReference1 {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Book", Namespace="http://schemas.datacontract.org/2004/07/Services.Lesson_2.Service")]
-    [System.SerializableAttribute()]
-    public partial class Book : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AuthorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Services.Lesson_2.Client.ServiceReference1.BookType TypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int YearField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Author {
-            get {
-                return this.AuthorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AuthorField, value) != true)) {
-                    this.AuthorField = value;
-                    this.RaisePropertyChanged("Author");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Services.Lesson_2.Client.ServiceReference1.BookType Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((this.TypeField.Equals(value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Year {
-            get {
-                return this.YearField;
-            }
-            set {
-                if ((this.YearField.Equals(value) != true)) {
-                    this.YearField = value;
-                    this.RaisePropertyChanged("Year");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BookType", Namespace="http://schemas.datacontract.org/2004/07/Services.Lesson_2.Service")]
-    public enum BookType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Journal = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Textbook = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Fiction = 2,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ILibrary")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ILibrary", SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface ILibrary {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/AddBook", ReplyAction="http://tempuri.org/ILibrary/AddBookResponse")]
-        void AddBook(Services.Lesson_2.Client.ServiceReference1.Book book);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/IntroduceYourself", ReplyAction="http://tempuri.org/ILibrary/IntroduceYourselfResponse")]
+        void IntroduceYourself(int idPerson, string name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/AddBook", ReplyAction="http://tempuri.org/ILibrary/AddBookResponse")]
-        System.Threading.Tasks.Task AddBookAsync(Services.Lesson_2.Client.ServiceReference1.Book book);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/IntroduceYourself", ReplyAction="http://tempuri.org/ILibrary/IntroduceYourselfResponse")]
+        System.Threading.Tasks.Task IntroduceYourselfAsync(int idPerson, string name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/GetBookById", ReplyAction="http://tempuri.org/ILibrary/GetBookByIdResponse")]
-        Services.Lesson_2.Client.ServiceReference1.Book GetBookById(int id);
+        [System.ServiceModel.OperationContractAttribute(IsTerminating=true, Action="http://tempuri.org/ILibrary/GoAway", ReplyAction="http://tempuri.org/ILibrary/GoAwayResponse")]
+        void GoAway();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/GetBookById", ReplyAction="http://tempuri.org/ILibrary/GetBookByIdResponse")]
-        System.Threading.Tasks.Task<Services.Lesson_2.Client.ServiceReference1.Book> GetBookByIdAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(IsTerminating=true, Action="http://tempuri.org/ILibrary/GoAway", ReplyAction="http://tempuri.org/ILibrary/GoAwayResponse")]
+        System.Threading.Tasks.Task GoAwayAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/GetBooksByAuthor", ReplyAction="http://tempuri.org/ILibrary/GetBooksByAuthorResponse")]
-        Services.Lesson_2.Client.ServiceReference1.Book[] GetBooksByAuthor(string author);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/ChooseNewBooks", ReplyAction="http://tempuri.org/ILibrary/ChooseNewBooksResponse")]
+        void ChooseNewBooks(int[] ids);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/GetBooksByAuthor", ReplyAction="http://tempuri.org/ILibrary/GetBooksByAuthorResponse")]
-        System.Threading.Tasks.Task<Services.Lesson_2.Client.ServiceReference1.Book[]> GetBooksByAuthorAsync(string author);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/ChooseNewBooks", ReplyAction="http://tempuri.org/ILibrary/ChooseNewBooksResponse")]
+        System.Threading.Tasks.Task ChooseNewBooksAsync(int[] ids);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/GiveBook", ReplyAction="http://tempuri.org/ILibrary/GiveBookResponse")]
-        Services.Lesson_2.Client.ServiceReference1.Book GiveBook(int idBook, int idPerson);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/HandOverBooks", ReplyAction="http://tempuri.org/ILibrary/HandOverBooksResponse")]
+        void HandOverBooks(int[] ids);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/GiveBook", ReplyAction="http://tempuri.org/ILibrary/GiveBookResponse")]
-        System.Threading.Tasks.Task<Services.Lesson_2.Client.ServiceReference1.Book> GiveBookAsync(int idBook, int idPerson);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/HandOverBooks", ReplyAction="http://tempuri.org/ILibrary/HandOverBooksResponse")]
+        System.Threading.Tasks.Task HandOverBooksAsync(int[] ids);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/ReturnBook", ReplyAction="http://tempuri.org/ILibrary/ReturnBookResponse")]
-        void ReturnBook(int idBook, int idPerson);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/ApplayChanges", ReplyAction="http://tempuri.org/ILibrary/ApplayChangesResponse")]
+        string ApplayChanges();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibrary/ReturnBook", ReplyAction="http://tempuri.org/ILibrary/ReturnBookResponse")]
-        System.Threading.Tasks.Task ReturnBookAsync(int idBook, int idPerson);
+        [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/ApplayChanges", ReplyAction="http://tempuri.org/ILibrary/ApplayChangesResponse")]
+        System.Threading.Tasks.Task<string> ApplayChangesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -198,44 +73,44 @@ namespace Services.Lesson_2.Client.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public void AddBook(Services.Lesson_2.Client.ServiceReference1.Book book) {
-            base.Channel.AddBook(book);
+        public void IntroduceYourself(int idPerson, string name) {
+            base.Channel.IntroduceYourself(idPerson, name);
         }
         
-        public System.Threading.Tasks.Task AddBookAsync(Services.Lesson_2.Client.ServiceReference1.Book book) {
-            return base.Channel.AddBookAsync(book);
+        public System.Threading.Tasks.Task IntroduceYourselfAsync(int idPerson, string name) {
+            return base.Channel.IntroduceYourselfAsync(idPerson, name);
         }
         
-        public Services.Lesson_2.Client.ServiceReference1.Book GetBookById(int id) {
-            return base.Channel.GetBookById(id);
+        public void GoAway() {
+            base.Channel.GoAway();
         }
         
-        public System.Threading.Tasks.Task<Services.Lesson_2.Client.ServiceReference1.Book> GetBookByIdAsync(int id) {
-            return base.Channel.GetBookByIdAsync(id);
+        public System.Threading.Tasks.Task GoAwayAsync() {
+            return base.Channel.GoAwayAsync();
         }
         
-        public Services.Lesson_2.Client.ServiceReference1.Book[] GetBooksByAuthor(string author) {
-            return base.Channel.GetBooksByAuthor(author);
+        public void ChooseNewBooks(int[] ids) {
+            base.Channel.ChooseNewBooks(ids);
         }
         
-        public System.Threading.Tasks.Task<Services.Lesson_2.Client.ServiceReference1.Book[]> GetBooksByAuthorAsync(string author) {
-            return base.Channel.GetBooksByAuthorAsync(author);
+        public System.Threading.Tasks.Task ChooseNewBooksAsync(int[] ids) {
+            return base.Channel.ChooseNewBooksAsync(ids);
         }
         
-        public Services.Lesson_2.Client.ServiceReference1.Book GiveBook(int idBook, int idPerson) {
-            return base.Channel.GiveBook(idBook, idPerson);
+        public void HandOverBooks(int[] ids) {
+            base.Channel.HandOverBooks(ids);
         }
         
-        public System.Threading.Tasks.Task<Services.Lesson_2.Client.ServiceReference1.Book> GiveBookAsync(int idBook, int idPerson) {
-            return base.Channel.GiveBookAsync(idBook, idPerson);
+        public System.Threading.Tasks.Task HandOverBooksAsync(int[] ids) {
+            return base.Channel.HandOverBooksAsync(ids);
         }
         
-        public void ReturnBook(int idBook, int idPerson) {
-            base.Channel.ReturnBook(idBook, idPerson);
+        public string ApplayChanges() {
+            return base.Channel.ApplayChanges();
         }
         
-        public System.Threading.Tasks.Task ReturnBookAsync(int idBook, int idPerson) {
-            return base.Channel.ReturnBookAsync(idBook, idPerson);
+        public System.Threading.Tasks.Task<string> ApplayChangesAsync() {
+            return base.Channel.ApplayChangesAsync();
         }
     }
 }

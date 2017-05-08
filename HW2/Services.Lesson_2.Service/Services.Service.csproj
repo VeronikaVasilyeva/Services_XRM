@@ -91,12 +91,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookStorage\Book.cs" />
-    <Compile Include="BookStorage\BookSorage.cs" />
+    <Compile Include="Library\BookStorage\Book.cs" />
+    <Compile Include="Library\BookStorage\BookSorage.cs" />
     <Compile Include="ILibrary.cs" />
-    <Compile Include="InformationStorage\InformationStorage.cs" />
-    <Compile Include="InformationStorage\Person.cs" />
-    <Compile Include="Library.cs" />
+    <Compile Include="Library\InformationStorage\InformationStorage.cs" />
+    <Compile Include="Library\InformationStorage\Person.cs" />
+    <Compile Include="LibraryFacade.cs" />
+    <Compile Include="Library\Library.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

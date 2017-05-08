@@ -7,8 +7,7 @@ namespace Services.Lesson_2.Service
     {
         public static void Main()
         {
-            var host = new ServiceHost(typeof(Library), new Uri("http://localhost:8886/library"));
-            //передаем реализацию сервиса и базовый адрес
+            var host = new ServiceHost(typeof(LibraryFacade));
 
             host.Open();
 
