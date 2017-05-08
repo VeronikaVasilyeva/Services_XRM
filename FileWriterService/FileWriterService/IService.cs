@@ -6,33 +6,12 @@ using System.ServiceModel;
 
 namespace FileWriterService
 {
+    //[ServiceContract(SessionMode = SessionMode.Required)]
     [ServiceContract]
     public interface IService
     {
         [OperationContract]
-        void WriteToFile(int thread, string value);
-    }
+        void WriteToFile(int pid, string value);
 
-
-    // Используйте контракт данных, как показано в примере ниже, чтобы добавить составные типы к операциям служб.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
     }
 }

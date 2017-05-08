@@ -4,7 +4,7 @@
     <wsp:ExactlyOne>
       <wsp:All>
         <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
-          <wsrm:InactivityTimeout Milliseconds="900000" />
+          <wsrm:InactivityTimeout Milliseconds="300000" />
           <wsrm:AcknowledgementInterval Milliseconds="200" />
         </wsrm:RMAssertion>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
@@ -24,10 +24,20 @@
   <wsdl:message name="IService_WriteToFile_OutputMessage">
     <wsdl:part name="parameters" element="tns:WriteToFileResponse" />
   </wsdl:message>
-  <wsdl:portType name="IService">
-    <wsdl:operation name="WriteToFile">
+  <wsdl:message name="IService_FinishedWrite_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinishedWrite" />
+  </wsdl:message>
+  <wsdl:message name="IService_FinishedWrite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FinishedWriteResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IService">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="WriteToFile">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/WriteToFile" message="tns:IService_WriteToFile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/WriteToFileResponse" message="tns:IService_WriteToFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="true" name="FinishedWrite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/FinishedWrite" message="tns:IService_FinishedWrite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/FinishedWriteResponse" message="tns:IService_FinishedWrite_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IService" type="tns:IService">
@@ -35,6 +45,15 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="WriteToFile">
       <soap12:operation soapAction="http://tempuri.org/IService/WriteToFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishedWrite">
+      <soap12:operation soapAction="http://tempuri.org/IService/FinishedWrite" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

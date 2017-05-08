@@ -10,24 +10,25 @@ namespace FileWriteClient
 {
     class Program
     {
+        private static readonly int _anountTreads = 10;
+
         static void Main(string[] args)
         {
-            Thread thread1 = new Thread(new ThreadStart(createClient));
-            Thread thread2 = new Thread(new ThreadStart(createClient));
-            thread1.Start();
-            thread2.Start();
-            thread1.Join();
-            thread2.Join();
+            for (int x = 0; x < _anountTreads; x++)
+            {
+                int y = x;
+                Task.Run(() => CreateClient(y));
+            }
 
-
-            Console.Write("the end");
             Console.ReadKey();
         }
 
-        static void createClient()
+        static void CreateClient(int pid)
         {
             var client = new FileWriterServiceRef.ServiceClient();
-            client.WriteToFile(10, "bla");
+
+            client.WriteToFile(pid, string.Join(pid.ToString(), new string[64]));
         }
     }
+
 }

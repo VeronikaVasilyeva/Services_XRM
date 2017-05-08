@@ -12,14 +12,20 @@ namespace FileWriteClient.FileWriterServiceRef {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FileWriterServiceRef.IService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FileWriterServiceRef.IService", SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/WriteToFile", ReplyAction="http://tempuri.org/IService/WriteToFileResponse")]
-        void WriteToFile(int thread, string value);
+        void WriteToFile(int pid, string value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/WriteToFile", ReplyAction="http://tempuri.org/IService/WriteToFileResponse")]
-        System.Threading.Tasks.Task WriteToFileAsync(int thread, string value);
+        System.Threading.Tasks.Task WriteToFileAsync(int pid, string value);
+        
+        [System.ServiceModel.OperationContractAttribute(IsTerminating=true, Action="http://tempuri.org/IService/FinishedWrite", ReplyAction="http://tempuri.org/IService/FinishedWriteResponse")]
+        void FinishedWrite(int pid);
+        
+        [System.ServiceModel.OperationContractAttribute(IsTerminating=true, Action="http://tempuri.org/IService/FinishedWrite", ReplyAction="http://tempuri.org/IService/FinishedWriteResponse")]
+        System.Threading.Tasks.Task FinishedWriteAsync(int pid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +55,20 @@ namespace FileWriteClient.FileWriterServiceRef {
                 base(binding, remoteAddress) {
         }
         
-        public void WriteToFile(int thread, string value) {
-            base.Channel.WriteToFile(thread, value);
+        public void WriteToFile(int pid, string value) {
+            base.Channel.WriteToFile(pid, value);
         }
         
-        public System.Threading.Tasks.Task WriteToFileAsync(int thread, string value) {
-            return base.Channel.WriteToFileAsync(thread, value);
+        public System.Threading.Tasks.Task WriteToFileAsync(int pid, string value) {
+            return base.Channel.WriteToFileAsync(pid, value);
+        }
+        
+        public void FinishedWrite(int pid) {
+            base.Channel.FinishedWrite(pid);
+        }
+        
+        public System.Threading.Tasks.Task FinishedWriteAsync(int pid) {
+            return base.Channel.FinishedWriteAsync(pid);
         }
     }
 }

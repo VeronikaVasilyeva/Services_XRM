@@ -10,7 +10,9 @@ namespace FileWriterService
     {
         public static void Main()
         {
-            var host = new ServiceHost(typeof(FileWriterService));
+            var srv = new FileWriterService();
+            srv.InitializeCollections();
+            var host = new ServiceHost(srv);
 
             host.Open();
 

@@ -3,12 +3,24 @@
   <xs:element name="WriteToFile">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="thread" type="xs:int" />
+        <xs:element minOccurs="0" name="pid" type="xs:int" />
         <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="WriteToFileResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinishedWrite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FinishedWriteResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
