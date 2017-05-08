@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 
-namespace Services.Lesson_2.Service
+namespace Services.Lesson_3.Service
 {
     public class Program
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Services.Lesson_2.Client.ServiceReference1;
+using Services.Lesson_3.Client.ServiceReference1;
 
-namespace Services.Lesson_2.Client
+namespace Services.Lesson_3.Client
 {
     class Program
     {

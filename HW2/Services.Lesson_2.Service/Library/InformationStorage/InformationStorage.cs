@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Services.Lesson_2.Service.Library.InformationStorage
+namespace Services.Lesson_3.Service.Library.InformationStorage
 {
     public class InformationStorage
     {
@@ -24,7 +24,7 @@ namespace Services.Lesson_2.Service.Library.InformationStorage
             }
             else
             {
-                _libraryInfo.Add(person, new List<BookStorage.Book> { book });
+                _libraryInfo.Add(person, new List<BookStorage.Book> {book});
             }
         }
 
@@ -36,6 +36,5 @@ namespace Services.Lesson_2.Service.Library.InformationStorage
                 _libraryInfo.Remove(entry.Key);
             }
         }
-
     }
 }

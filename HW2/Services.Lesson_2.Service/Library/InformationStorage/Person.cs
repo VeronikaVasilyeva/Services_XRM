@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Services.Lesson_2.Service.Library.InformationStorage
+namespace Services.Lesson_3.Service.Library.InformationStorage
 {
     [DataContract]
     public class Person

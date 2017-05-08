@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.ServiceModel;
 
-namespace Services.Lesson_2.Service
+namespace Services.Lesson_3.Service
 {
     [ServiceContract(SessionMode = SessionMode.Required)]
     public interface ILibrary
     {
-
         [OperationContract(IsInitiating = true)]
         void IntroduceYourself(int idPerson, string name);
 
@@ -22,12 +21,5 @@ namespace Services.Lesson_2.Service
 
         [OperationContract(IsInitiating = false)]
         string ApplayChanges();
-
     }
 }
-
-/* 
-Выбрать новые книги
-Сдать старые книги
-Завершить обслуживание (применить изменения)
- * */

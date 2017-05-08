@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using Services.Lesson_2.Service.Library.InformationStorage;
+using Services.Lesson_3.Service.Library.InformationStorage;
 
-namespace Services.Lesson_2.Service
+namespace Services.Lesson_3.Service
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class LibraryFacade : ILibrary
@@ -30,7 +30,8 @@ namespace Services.Lesson_2.Service
             _currentPerson = null;
             _choosedBooks = null;
             _handOverBooks = null;
-            Console.WriteLine("The person with sessionId " + OperationContext.Current.SessionId + " go away from library");
+            Console.WriteLine("The person with sessionId " + OperationContext.Current.SessionId +
+                              " go away from library");
         }
 
         public void ChooseNewBooks(List<int> ids)
@@ -40,7 +41,8 @@ namespace Services.Lesson_2.Service
 
         public void HandOverBooks(List<int> ids)
         {
-            _handOverBooks.AddRange(ids); ;
+            _handOverBooks.AddRange(ids);
+            ;
         }
 
         public string ApplayChanges()
@@ -54,14 +56,13 @@ namespace Services.Lesson_2.Service
             }
 
             if (_choosedBooks.Count > 5) return "Вы привысили лимит, не более 5 книг";
-                        
+
             foreach (int i in _choosedBooks)
             {
                 _library.GiveBook(i, _currentPerson.Id);
             }
 
             return "Операции успешно применены";
-
         }
     }
 }

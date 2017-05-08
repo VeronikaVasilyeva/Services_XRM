@@ -8,7 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Services.Lesson_2.Client.ServiceReference1 {
+using System.Collections.Generic;
+
+namespace Services.Lesson_3.Client.ServiceReference1 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -28,13 +30,13 @@ namespace Services.Lesson_2.Client.ServiceReference1 {
         System.Threading.Tasks.Task GoAwayAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/ChooseNewBooks", ReplyAction="http://tempuri.org/ILibrary/ChooseNewBooksResponse")]
-        void ChooseNewBooks(int[] ids);
+        void ChooseNewBooks(List<int> ids);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/ChooseNewBooks", ReplyAction="http://tempuri.org/ILibrary/ChooseNewBooksResponse")]
         System.Threading.Tasks.Task ChooseNewBooksAsync(int[] ids);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/HandOverBooks", ReplyAction="http://tempuri.org/ILibrary/HandOverBooksResponse")]
-        void HandOverBooks(int[] ids);
+        void HandOverBooks(List<int> ids);
         
         [System.ServiceModel.OperationContractAttribute(IsInitiating=false, Action="http://tempuri.org/ILibrary/HandOverBooks", ReplyAction="http://tempuri.org/ILibrary/HandOverBooksResponse")]
         System.Threading.Tasks.Task HandOverBooksAsync(int[] ids);
@@ -47,12 +49,12 @@ namespace Services.Lesson_2.Client.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ILibraryChannel : Services.Lesson_2.Client.ServiceReference1.ILibrary, System.ServiceModel.IClientChannel {
+    public interface ILibraryChannel : Services.Lesson_3.Client.ServiceReference1.ILibrary, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class LibraryClient : System.ServiceModel.ClientBase<Services.Lesson_2.Client.ServiceReference1.ILibrary>, Services.Lesson_2.Client.ServiceReference1.ILibrary {
+    public partial class LibraryClient : System.ServiceModel.ClientBase<Services.Lesson_3.Client.ServiceReference1.ILibrary>, Services.Lesson_3.Client.ServiceReference1.ILibrary {
         
         public LibraryClient() {
         }
@@ -89,7 +91,7 @@ namespace Services.Lesson_2.Client.ServiceReference1 {
             return base.Channel.GoAwayAsync();
         }
         
-        public void ChooseNewBooks(int[] ids) {
+        public void ChooseNewBooks(List<int> ids) {
             base.Channel.ChooseNewBooks(ids);
         }
         
@@ -97,7 +99,7 @@ namespace Services.Lesson_2.Client.ServiceReference1 {
             return base.Channel.ChooseNewBooksAsync(ids);
         }
         
-        public void HandOverBooks(int[] ids) {
+        public void HandOverBooks(List<int> ids) {
             base.Channel.HandOverBooks(ids);
         }
         
